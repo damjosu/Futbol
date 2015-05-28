@@ -52,7 +52,7 @@ public class Equipo
         }
         jugadores.add(new Capitan(nombres[rnd.nextInt(nombres.length - 1)], rnd.nextInt((Jugador.getMAX_EDAD() + 1) - Jugador.getMIN_EDAD()) + Jugador.getMIN_EDAD())); //  Añade al capitan.
         Collections.shuffle(jugadores); //  Desordena el ArrayList.
-        for (int i = 0; i < MIN_JUGADORES - 1; i++) {   //  Asigna los dorsales (el primero reservado para el portero).
+        for (int i = 0; i < numJugadores - 1; i++) {   //  Asigna los dorsales (el primero reservado para el portero).
             jugadores.get(i).setDorsal(dorsalUltimoJugador);
             dorsalUltimoJugador++;
         }
