@@ -34,29 +34,29 @@ public class Equipo
         if (numJugadores <= MIN_JUGADORES) { //  Hay el mínimo de jugadores y por lo tanto todos son titulares.
             for (int i = 0; i < MIN_JUGADORES - 2; i++) {
                 jugadores.add(new JugadorDeCampo(nombres[rnd.nextInt(nombres.length - 1)], rnd.nextInt((Jugador.getMAX_EDAD() + 1) - Jugador.getMIN_EDAD()) + Jugador.getMIN_EDAD()));
-                jugadores.get(i).setTitular(true);
+                jugadores.get(i).isTitular(true);
             }    
-        } else {    //  Hay más del minimo de jugadores, se seleccionará s los que tengan mejor valoración.
-            for (int i = 0; i < numJugadores - 2; i++) {
+        } else {    //  Hay más del minimo de jugadores.
+            for (int i = 0; i < numJugadores - 2; i++) {    //  Se añaden los jugadores.
                 jugadores.add(new JugadorDeCampo(nombres[rnd.nextInt(nombres.length - 1)], rnd.nextInt((Jugador.getMAX_EDAD() + 1) - Jugador.getMIN_EDAD()) + Jugador.getMIN_EDAD()));
             }
-            Collections.sort(jugadores, new Comparator<Jugador>() {
+            Collections.sort(jugadores, new Comparator<Jugador>() { //  Ordena el ArrayList de mayor a menor valoracion.
                     @Override
-                    public int compare(Jugador j1) {
+                    public int compare(Jugador j1, Jugador j2) {
                         return new Float(j2.valoracion()).compareTo(new Float(j1.valoracion()));
                     }
                 });
-            for (int i = 0; i < MIN_JUGADORES - 2; i++) {
-                jugadores.get(i).setTitular(true);
+            for (int i = 0; i < MIN_JUGADORES - 2; i++) {   //  Hace titulares a los MIN_JUGADORES - 2  primeros jugadores.
+                jugadores.get(i).isTitular(true);
             }
         }
-        jugadores.add(new Capitan(nombres[rnd.nextInt(nombres.length - 1)], rnd.nextInt((Jugador.getMAX_EDAD() + 1) - Jugador.getMIN_EDAD()) + Jugador.getMIN_EDAD()));
-        Collections.shuffle(jugadores);
-        for (int i = 0; i < MIN_JUGADORES - 1; i++) {
+        jugadores.add(new Capitan(nombres[rnd.nextInt(nombres.length - 1)], rnd.nextInt((Jugador.getMAX_EDAD() + 1) - Jugador.getMIN_EDAD()) + Jugador.getMIN_EDAD())); //  Añade al capitan.
+        Collections.shuffle(jugadores); //  Desordena el ArrayList.
+        for (int i = 0; i < MIN_JUGADORES - 1; i++) {   //  Asigna los dorsales (el primero reservado para el portero).
             jugadores.get(i).setDorsal(dorsalUltimoJugador);
             dorsalUltimoJugador++;
         }
-        jugadores.add(new Portero(nombres[rnd.nextInt(nombres.length - 1)], rnd.nextInt((Jugador.getMAX_EDAD() + 1) - Jugador.getMIN_EDAD()) + Jugador.getMIN_EDAD()));
+        jugadores.add(new Portero(nombres[rnd.nextInt(nombres.length - 1)], rnd.nextInt((Jugador.getMAX_EDAD() + 1) - Jugador.getMIN_EDAD()) + Jugador.getMIN_EDAD())); //  Añade al portero.
     }
 
     public String getNombre() {
@@ -78,9 +78,13 @@ public class Equipo
     public int getMIN_JUGADORES() {
         return MIN_JUGADORES;
     }
-
+    
+    public Jugador getJugador(int jugador) {
+        return jugadores.get(jugador);
+    }
+    
     public void addJugador(Jugador jugador) {
         jugadores.add(jugador);
     }
-
+    
 }

@@ -67,6 +67,6 @@ public class JugadorDeCampo extends Jugador
     
     @Override
     public String toString() {
-        return "";
+        return "Dorsal " + getDorsal() + " " + getNombre() + " Forma: " + getEstadoDeForma() + " Pase: " + pase + " Regate: " + regate + " Remate: " + remate + " Valoración: " + valoracion();
     }
 }

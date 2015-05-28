@@ -73,11 +73,11 @@ public abstract class Jugador implements Comparable<Jugador>
         return set;
     }
 
-    public boolean getTitular() {
+    public boolean titular() {
         return titular;
     }
 
-    public void setTitular(boolean titular) {
+    public void isTitular(boolean titular) {
         this.titular = titular;
     }
 
@@ -98,4 +98,6 @@ public abstract class Jugador implements Comparable<Jugador>
     }
 
     public abstract float valoracion();
+    
+    public abstract String toString();
 }

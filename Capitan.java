@@ -17,7 +17,7 @@ public class Capitan extends JugadorDeCampo
     public Capitan(String nombre, int edad)
     {
         super(nombre, edad);
-        setTitular(true);
+        isTitular(true);
         Random rnd = new Random();
         liderazgo = rnd.nextInt((MAX_LIDERAZGO + 1) - MIN_LIDERAZGO) + MIN_LIDERAZGO;
     }
@@ -46,5 +46,10 @@ public class Capitan extends JugadorDeCampo
     @Override
     public float valoracion() {
         return (super.valoracion() + liderazgo) / 2;
+    }
+    
+    @Override
+    public String toString() {
+        return super.toString() + " Liderazgo: " + liderazgo;
     }
 }

@@ -15,7 +15,7 @@ public class Portero extends Jugador
     public Portero(String nombre, int edad)
     {
         super(nombre, edad);
-        setTitular(true);
+        isTitular(true);
         setDorsal(1);
         Random rnd = new Random();
         agilidad = rnd.nextInt((getMAX_ESTADISTICAS() + 1) - getMIN_ESTADISTICAS()) + getMIN_ESTADISTICAS();
@@ -50,5 +50,10 @@ public class Portero extends Jugador
 
     public float valoracion() {
         return (getEstadoDeForma() + agilidad + fortalezaMental) / 3;
+    }
+    
+    @Override
+    public String toString() {
+        return "Dorsal " + getDorsal() + " " + getNombre() + " Forma: " + getEstadoDeForma() + " Agil.: " + agilidad + " FortM.: " + fortalezaMental +" Valoración: " + valoracion();
     }
 }
