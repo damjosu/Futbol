@@ -48,6 +48,8 @@ public class Capitan extends JugadorDeCampo
         float valoracion = 0;
         if (super.valoracion() + liderazgo > 10) {
             valoracion = 10;
+        } else {
+            valoracion = (super.valoracion() + liderazgo);
         }
         return valoracion;
     }
