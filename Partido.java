@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 /**
  * Write a description of class Partido here.
  * 
@@ -24,7 +25,7 @@ public class Partido
         visitanteReserva = new ArrayList<Jugador>();
     }
 
-    public void mostrarAlineaciones() {
+    public void generarAlineaciones(){
         if(localTitular.isEmpty()){
             int numeroEquipo1 = equipo1.getNumJugadores();
             for (int i = 0; i < numeroEquipo1; i++) {
@@ -47,6 +48,10 @@ public class Partido
                 }
             }
         }
+    }
+    
+    public void mostrarAlineaciones() {
+        generarAlineaciones();
         System.out.println(equipo1.getNombre() + "\nTitulares:");
         for(Jugador deAqui:localTitular){
             System.out.println(deAqui);
@@ -71,5 +76,15 @@ public class Partido
             media += evaluar.valoracion();
         }
         return (media / equipo.size());
+    }
+    
+    public Resultado jugarPartido(){
+        generarAlineaciones();
+        Random rnd = new Random();
+        int valorLocal = (int) valoracionMedia(localTitular);
+        int valorVisitante = (int) valoracionMedia(visitanteTitular);
+        int golesLocal = valorLocal - rnd.nextInt(valorLocal);
+        int golesVisitante = valorVisitante - rnd.nextInt(valorVisitante);
+        return (new Resultado(equipo1.getNombre(), equipo2.getNombre(), golesLocal, golesVisitante));
     }
 }
