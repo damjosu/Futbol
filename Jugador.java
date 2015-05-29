@@ -64,10 +64,10 @@ public abstract class Jugador implements Comparable<Jugador>
         return estadoDeForma;
     }
 
-    public boolean setEstadoDeForma() {
+    public boolean setEstadoDeForma(int nuevoValor) {
         boolean set = false;
-        if (estadoDeForma >= MIN_ESTADISTICAS && estadoDeForma <= MAX_ESTADISTICAS) {
-            this.estadoDeForma = estadoDeForma;
+        if (nuevoValor >= MIN_ESTADISTICAS && nuevoValor <= MAX_ESTADISTICAS) {
+            this.estadoDeForma = nuevoValor;
             set = true;
         }
         return set;

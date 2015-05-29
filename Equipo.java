@@ -19,7 +19,7 @@ public class Equipo
     /**
      * Constructor for objects of class Equipo
      */
-    public Equipo(String nombre, int numJugadores)
+    public Equipo(String nombre, int numJugadores, boolean hayCrack)
     {
         this.nombre = nombre;
         this.numJugadores = numJugadores;
@@ -55,6 +55,24 @@ public class Equipo
         for (int i = 0; i < numJugadores - 1; i++) {   //  Asigna los dorsales (el primero reservado para el portero).
             jugadores.get(i).setDorsal(dorsalUltimoJugador);
             dorsalUltimoJugador++;
+        }
+        if(hayCrack){
+            int id = rnd.nextInt(jugadores.size());
+            Jugador crack = jugadores.get(id);
+            if(crack instanceof JugadorDeCampo){
+                JugadorDeCampo superPlayer = (JugadorDeCampo) crack;
+                superPlayer.setPase(10);
+                superPlayer.setRegate(10);
+                superPlayer.setRemate(10);
+                superPlayer.setEstadoDeForma(10);
+            }else{
+                Capitan superCapi = (Capitan) crack;
+                superCapi.setPase(10);
+                superCapi.setRegate(10);
+                superCapi.setRemate(10);
+                superCapi.setEstadoDeForma(10);
+                superCapi.setLiderazgo(5);
+            }
         }
         jugadores.add(0, new Portero(nombres[rnd.nextInt(nombres.length - 1)], rnd.nextInt((Jugador.getMAX_EDAD() + 1) - Jugador.getMIN_EDAD()) + Jugador.getMIN_EDAD())); //  Añade al portero.
     }
