@@ -105,4 +105,31 @@ public class Equipo
         jugadores.add(jugador);
     }
     
+    public void entrenar(){
+        Random rnd = new Random();
+        System.out.println("Resultados del entrenamiento del equipo " + nombre);
+        for(Jugador player:jugadores){
+            int aleatorio = rnd.nextInt(3) + 1;
+            player.setEstadoDeForma(player.getEstadoDeForma() + aleatorio);  
+            if(player instanceof Portero){
+                Portero parador = (Portero) player;
+                parador.setAgilidad(parador.getAgilidad() + aleatorio);
+                parador.setFortalezaMental(parador.getFortalezaMental() + aleatorio);
+                System.out.println(parador);
+            }else{
+                JugadorDeCampo jugador = (JugadorDeCampo) player;
+                jugador.setPase(jugador.getPase() + aleatorio);
+                jugador.setRegate(jugador.getRegate() + aleatorio);
+                jugador.setRemate(jugador.getRemate() + aleatorio);
+                if(jugador instanceof Capitan){
+                    Capitan capi = (Capitan) player;
+                    capi.setLiderazgo(capi.getLiderazgo() + aleatorio);
+                    System.out.println(capi);
+                }else{
+                    System.out.println(jugador);
+                }
+            }
+        }
+        System.out.println("");
+    }
 }

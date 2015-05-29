@@ -26,10 +26,10 @@ public class Capitan extends JugadorDeCampo
         return liderazgo;
     }
     
-    public boolean setLiderazgo(int liderazgo) {
+    public boolean setLiderazgo(int nuevoLiderazgo) {
          boolean set = false;
-        if (liderazgo >= MIN_LIDERAZGO && liderazgo <= MAX_LIDERAZGO) {
-            this.liderazgo = liderazgo;
+        if (nuevoLiderazgo >= MIN_LIDERAZGO && nuevoLiderazgo <= MAX_LIDERAZGO) {
+            liderazgo = nuevoLiderazgo;
             set = true;
         }
         return set;
