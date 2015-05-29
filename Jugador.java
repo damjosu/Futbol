@@ -101,10 +101,9 @@ public abstract class Jugador implements Comparable<Jugador>
     
     @Override
     public String toString() {
-        String forma = " \tForma: ";
-        if (getNombre().length() < 5) {
-            forma = " \t\tForma: ";
-        }
-        return "Dorsal " + String.format("%02d", getDorsal()) + " \t" + getNombre() + " (" + getEdad() + " años)" + forma + getEstadoDeForma();
+        String cadena = String.format("%s %2d%s ", "Dorsal", dorsal, ".");
+        cadena += String.format("%-29s", (nombre + " (Edad " + edad + ")"));
+        cadena += String.format("%s: %-2d", "Forma", estadoDeForma);
+        return cadena;
     }
 }

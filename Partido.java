@@ -39,9 +39,9 @@ public class Partido
             }
         }
         System.out.println(equipo1.getNombre());
-        System.out.println("Titulares:\n" + titulares1 + "\n \t \t**************** Media de valoración del equipo titular: " + valoracionMedia(equipo1) + " ****************\nReservas:\n" + reservas1);
+        System.out.println("Titulares:\n" + titulares1 + "******************* Media de valoracion del equipo titular: " + String.format("%.2f", valoracionMedia(equipo1)) + " *******************\nReservas:\n" + reservas1);
         System.out.println(equipo2.getNombre());
-        System.out.println("Titulares:\n" + titulares2 + "\n \t \t**************** Media de valoración del equipo reserva: " + valoracionMedia(equipo2) + " ****************\nReservas:\n" + reservas2);
+        System.out.println("Titulares:\n" + titulares2 + "******************* Media de valoracion del equipo titular: " + String.format("%.2f", valoracionMedia(equipo2)) + " *******************\nReservas:\n" + reservas2);
     }
 
     private float valoracionMedia(Equipo equipo) {

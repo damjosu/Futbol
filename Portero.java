@@ -54,6 +54,9 @@ public class Portero extends Jugador
 
     @Override
     public String toString() {
-        return super.toString() + " \tAgil.: " + agilidad + " \tFortM.: " + fortalezaMental +" \t \t \tValoración: " + valoracion();
+        String cadena = super.toString();
+        cadena += String.format("  %s: %-2d", "Agil.", agilidad);
+        cadena += String.format("  %s: %-2d", "Fort.M", fortalezaMental);
+        return cadena;
     }
 }

@@ -56,6 +56,6 @@ public class Capitan extends JugadorDeCampo
     
     @Override
     public String toString() {
-        return super.toString() + " \tLiderazgo: " + liderazgo;
+        return super.toString() + String.format("  %s: %-2d", "Liderazgo", liderazgo);
     }
 }
