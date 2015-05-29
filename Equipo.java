@@ -59,18 +59,13 @@ public class Equipo
         if(hayCrack){
             int id = rnd.nextInt(jugadores.size());
             Jugador crack = jugadores.get(id);
-            if(crack instanceof JugadorDeCampo){
-                JugadorDeCampo superPlayer = (JugadorDeCampo) crack;
-                superPlayer.setPase(10);
-                superPlayer.setRegate(10);
-                superPlayer.setRemate(10);
-                superPlayer.setEstadoDeForma(10);
-            }else{
-                Capitan superCapi = (Capitan) crack;
-                superCapi.setPase(10);
-                superCapi.setRegate(10);
-                superCapi.setRemate(10);
-                superCapi.setEstadoDeForma(10);
+            JugadorDeCampo player = (JugadorDeCampo) crack;
+            player.setPase(10);
+            player.setRegate(10);
+            player.setRemate(10);
+            player.setEstadoDeForma(10);
+            if(player instanceof Capitan){
+                Capitan superCapi = (Capitan) player;
                 superCapi.setLiderazgo(5);
             }
         }
