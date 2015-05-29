@@ -25,23 +25,26 @@ public class Partido
     }
 
     public void mostrarAlineaciones() {
-        int numeroEquipo1 = equipo1.getNumJugadores();
-        for (int i = 0; i < numeroEquipo1; i++) {
-            Jugador temporal = equipo1.getJugador(i);
-            if (temporal.titular()) {
-                localTitular.add(temporal);
-            } else {
-                localReserva.add(temporal);
+        if(localTitular.isEmpty()){
+            int numeroEquipo1 = equipo1.getNumJugadores();
+            for (int i = 0; i < numeroEquipo1; i++) {
+                Jugador temporal = equipo1.getJugador(i);
+                if (temporal.titular()) {
+                    localTitular.add((Jugador)temporal.clone());
+                } else {
+                    localReserva.add((Jugador)temporal.clone());
+                }
             }
         }
-
-        int numeroEquipo2 = equipo2.getNumJugadores();
-        for (int i = 0; i < numeroEquipo2; i++) {
-            Jugador temporal = equipo2.getJugador(i);
-            if (temporal.titular()) {
-                visitanteTitular.add(temporal);
-            } else {
-                visitanteReserva.add(temporal);
+        if(visitanteTitular.isEmpty()){
+            int numeroEquipo2 = equipo2.getNumJugadores();
+            for (int i = 0; i < numeroEquipo2; i++) {
+                Jugador temporal = equipo2.getJugador(i);
+                if (temporal.titular()) {
+                    visitanteTitular.add((Jugador)temporal.clone());
+                } else {
+                    visitanteReserva.add((Jugador)temporal.clone());
+                }
             }
         }
         System.out.println(equipo1.getNombre() + "\nTitulares:");

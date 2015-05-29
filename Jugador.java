@@ -6,7 +6,7 @@ import java.util.Random;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public abstract class Jugador implements Comparable<Jugador>
+public abstract class Jugador implements Comparable<Jugador>, Cloneable
 {
     private final String  nombre;
     private int edad;
@@ -105,5 +105,13 @@ public abstract class Jugador implements Comparable<Jugador>
         cadena += String.format("%-29s", (nombre + " (Edad " + edad + ")"));
         cadena += String.format("%s: %-2d", "Forma", estadoDeForma);
         return cadena;
+    }
+    
+    public Object clone(){
+        Object obj=null;
+        try{
+            obj=super.clone();
+        }catch(CloneNotSupportedException ex){}
+        return obj;
     }
 }
