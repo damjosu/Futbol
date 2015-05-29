@@ -99,5 +99,12 @@ public abstract class Jugador implements Comparable<Jugador>
 
     public abstract float valoracion();
     
-    public abstract String toString();
+    @Override
+    public String toString() {
+        String forma = " \tForma: ";
+        if (getNombre().length() < 5) {
+            forma = " \t\tForma: ";
+        }
+        return "Dorsal " + String.format("%02d", getDorsal()) + " \t" + getNombre() + " (" + getEdad() + " años)" + forma + getEstadoDeForma();
+    }
 }

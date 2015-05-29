@@ -66,11 +66,7 @@ public class JugadorDeCampo extends Jugador
     }
     
     @Override
-    public String toString() {
-        String forma = " \tForma: ";
-        if (getNombre().length() < 5) {
-            forma = " \t\tForma: ";
-        }
-        return "Dorsal " + String.format("%02d", getDorsal()) + " \t" + getNombre() + " (" + getEdad() + " años)" + forma + getEstadoDeForma() + " \tPase: " + pase + " \tRegate: " + regate + " \tRemate: " + remate + " \tValoración: " + valoracion();
+    public String toString() {        
+        return super.toString() +" \tPase: " + pase + " \tRegate: " + regate + " \tRemate: " + remate + " \tValoración: " + valoracion();
     }
 }

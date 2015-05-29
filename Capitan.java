@@ -45,7 +45,11 @@ public class Capitan extends JugadorDeCampo
     
     @Override
     public float valoracion() {
-        return (super.valoracion() + liderazgo) / 2;
+        float valoracion = 0;
+        if (super.valoracion() + liderazgo > 10) {
+            valoracion = 10;
+        }
+        return valoracion;
     }
     
     @Override
