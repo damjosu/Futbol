@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * Write a description of class Partido here.
  * 
@@ -9,6 +9,8 @@ public class Partido
 {
     private Equipo equipo1;
     private Equipo equipo2;
+    private ArrayList<Jugador> localTitular, localReserva;
+    private ArrayList<Jugador> visitanteTitular, visitanteReserva;
     /**
      * Constructor for objects of class Partido
      */
@@ -16,44 +18,55 @@ public class Partido
     {
         this.equipo1 = equipo1;
         this.equipo2 = equipo2;
+        localTitular = new ArrayList<Jugador>();
+        localReserva = new ArrayList<Jugador>();
+        visitanteTitular = new ArrayList<Jugador>();
+        visitanteReserva = new ArrayList<Jugador>();
     }
 
     public void mostrarAlineaciones() {
-        String titulares1 = "";
-        String reservas1 = "";
-        String titulares2 = "";
-        String reservas2 = "";        
-        for (int i = 0; i < equipo1.getNumJugadores(); i++) {
-            if (equipo1.getJugador(i).titular()) {
-                titulares1 += equipo1.getJugador(i).toString() + "\n";
+        int numeroEquipo1 = equipo1.getNumJugadores();
+        for (int i = 0; i < numeroEquipo1; i++) {
+            Jugador temporal = equipo1.getJugador(i);
+            if (temporal.titular()) {
+                localTitular.add(temporal);
             } else {
-                reservas1 += equipo1.getJugador(i).toString() + "\n";
+                localReserva.add(temporal);
             }
         }
 
-        for (int i = 0; i < equipo2.getNumJugadores(); i++) {
-            if (equipo2.getJugador(i).titular()) {
-                titulares2 += equipo2.getJugador(i).toString() + "\n";
+        int numeroEquipo2 = equipo2.getNumJugadores();
+        for (int i = 0; i < numeroEquipo2; i++) {
+            Jugador temporal = equipo2.getJugador(i);
+            if (temporal.titular()) {
+                visitanteTitular.add(temporal);
             } else {
-                reservas2 += equipo2.getJugador(i).toString() + "\n";
+                visitanteReserva.add(temporal);
             }
         }
-        System.out.println(equipo1.getNombre());
-        System.out.println("Titulares:\n" + titulares1 + "******************* Media de valoracion del equipo titular: " + String.format("%.2f", valoracionMedia(equipo1)) + " *******************\nReservas:\n" + reservas1);
-        System.out.println(equipo2.getNombre());
-        System.out.println("Titulares:\n" + titulares2 + "******************* Media de valoracion del equipo titular: " + String.format("%.2f", valoracionMedia(equipo2)) + " *******************\nReservas:\n" + reservas2);
+        System.out.println(equipo1.getNombre() + "\nTitulares:");
+        for(Jugador deAqui:localTitular){
+            System.out.println(deAqui);
+        }
+        System.out.println("******************* Media de valoracion del equipo titular: " + String.format("%.2f", valoracionMedia(localTitular)) + " *******************\nReservas:");
+        for(Jugador deAquiReserva:localReserva){
+            System.out.println(deAquiReserva);
+        }
+        System.out.println("\n" + equipo2.getNombre() + "\nTitulares:");
+        for(Jugador deAlli:visitanteTitular){
+            System.out.println(deAlli);
+        }
+        System.out.println("******************* Media de valoracion del equipo titular: " + String.format("%.2f", valoracionMedia(visitanteTitular)) + " *******************\nReservas:");
+        for(Jugador deAlliReserva:localReserva){
+            System.out.println(deAlliReserva);
+        }
     }
 
-    private float valoracionMedia(Equipo equipo) {
+    private float valoracionMedia(ArrayList<Jugador> equipo) {
         float media = 0;
-        int numTitulares = 0;
-        for (int i = 0; i < equipo.getNumJugadores(); i++) {
-            if (equipo1.getJugador(i).titular()) {
-                media += equipo.getJugador(i).valoracion();
-                numTitulares++;
-            }
-        }        
-        media = media / numTitulares;
-        return media;
+        for(Jugador evaluar:equipo){
+            media += evaluar.valoracion();
+        }
+        return (media / equipo.size());
     }
 }
