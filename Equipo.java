@@ -56,7 +56,7 @@ public class Equipo
             jugadores.get(i).setDorsal(dorsalUltimoJugador);
             dorsalUltimoJugador++;
         }
-        jugadores.add(new Portero(nombres[rnd.nextInt(nombres.length - 1)], rnd.nextInt((Jugador.getMAX_EDAD() + 1) - Jugador.getMIN_EDAD()) + Jugador.getMIN_EDAD())); //  Añade al portero.
+        jugadores.add(0, new Portero(nombres[rnd.nextInt(nombres.length - 1)], rnd.nextInt((Jugador.getMAX_EDAD() + 1) - Jugador.getMIN_EDAD()) + Jugador.getMIN_EDAD())); //  Añade al portero.
     }
 
     public String getNombre() {

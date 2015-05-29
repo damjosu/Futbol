@@ -50,6 +50,6 @@ public class Capitan extends JugadorDeCampo
     
     @Override
     public String toString() {
-        return super.toString() + " Liderazgo: " + liderazgo;
+        return super.toString() + " \tLiderazgo: " + liderazgo;
     }
 }

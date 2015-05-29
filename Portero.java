@@ -51,9 +51,13 @@ public class Portero extends Jugador
     public float valoracion() {
         return (getEstadoDeForma() + agilidad + fortalezaMental) / 3;
     }
-    
+
     @Override
     public String toString() {
-        return "Dorsal " + getDorsal() + " " + getNombre() + " Forma: " + getEstadoDeForma() + " Agil.: " + agilidad + " FortM.: " + fortalezaMental +" Valoración: " + valoracion();
+        String forma = " \tForma: ";
+        if (getNombre().length() < 5) {
+            forma = " \t\tForma: ";
+        }
+        return "Dorsal " + String.format("%02d", getDorsal()) + " \t" + getNombre() +  " (" + getEdad() + " años)" + forma + getEstadoDeForma() + " \tAgil.: " + agilidad + " \tFortM.: " + fortalezaMental +" \tValoración: " + valoracion();
     }
 }
