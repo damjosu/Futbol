@@ -29,7 +29,8 @@ public class Equipo
                 "Jose Ramon", "Federico", "Alberto", "Roberto", "Ruben", "Guillermo", "Hector", 
                 "Mario", "Felipe", "Manuel", "Tomas", "Agustin", "Jose Manuel", "Juan Jesus", 
                 "Pepe", "Ricardo", "Fernando", "Antonio", "Jose Alberto", "Jose Luis", "David", 
-                "Emilio", "Cesar", "German", "Raul", "Pablo"};             
+                "Emilio", "Cesar", "German", "Raul", "Pablo", "Francisco", "Eduardo", "Alejandro",
+                "Enrique", "Daniel", "Pascual", "Andres", "Saul", "Domingo", "Diego", "Marcial"};             
 
         if (numJugadores <= MIN_JUGADORES) { //  Hay el mínimo de jugadores y por lo tanto todos son titulares.
             for (int i = 0; i < MIN_JUGADORES - 2; i++) {
