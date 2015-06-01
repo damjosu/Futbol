@@ -70,6 +70,14 @@ public class Partido
         }
     }
 
+    public Equipo getEquipoLocal(){
+        return equipo1;
+    }
+    
+    public Equipo getEquipoVisitante(){
+        return equipo2;
+    }
+        
     private float valoracionMedia(ArrayList<Jugador> equipo) {
         float media = 0;
         for(Jugador evaluar:equipo){
@@ -85,6 +93,6 @@ public class Partido
         int valorVisitante = (int) valoracionMedia(visitanteTitular);
         int golesLocal = valorLocal - rnd.nextInt(valorLocal);
         int golesVisitante = valorVisitante - rnd.nextInt(valorVisitante);
-        return (new Resultado(equipo1.getNombre(), equipo2.getNombre(), golesLocal, golesVisitante));
+        return (new Resultado(equipo1, equipo2, golesLocal, golesVisitante));
     }
 }

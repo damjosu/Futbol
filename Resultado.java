@@ -2,17 +2,17 @@ public class Resultado
 {
     // instance variables - replace the example below with your own
     private int golesLocal, golesVisitante;
-    private String nombreLocal, nombreVisitante;
+    private Equipo local, visitante;
 
     /**
      * Constructor for objects of class Resultado
      */
-    public Resultado(String nomLocal, String nomVisitante, int local, int visitante)
+    public Resultado(Equipo equiLocal, Equipo equiVisitante, int local, int visitante)
     {
         golesLocal = local;
         golesVisitante = visitante;
-        nombreLocal = nomLocal;
-        nombreVisitante = nomVisitante;
+        this.local = equiLocal;
+        this.visitante = equiVisitante;
     }
 
     public int getGolesLocal(){
@@ -23,8 +23,16 @@ public class Resultado
         return golesVisitante;
     }
     
+    public Equipo getEquipoLocal(){
+        return local;
+    }
+    
+    public Equipo getEquipoVisitante(){
+        return visitante;
+    }
+    
     @Override
     public String toString(){
-        return String.format("%s %d - %d %s", nombreLocal, golesLocal, golesVisitante, nombreVisitante);
+        return String.format("%s %d - %d %s", local.getNombre(), golesLocal, golesVisitante, visitante.getNombre());
     }
 }
