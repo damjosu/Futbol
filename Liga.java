@@ -71,7 +71,8 @@ public class Liga
 
     public void jugarUnaJornada(){
         int contador = 0;
-        while (iterador.hasNext() && contador < 3){
+        int limite = (jornadas.size() / (participantes.size() - 1)) + 1;
+        while (iterador.hasNext() && contador < limite){
             Partido aJugar = iterador.next();
             if(jornadaActual != 0){
                 aJugar.getEquipoLocal().entrenar();
