@@ -35,6 +35,23 @@ public class Test
     public void jugarUnaJornadaDeLiga(){
         if(liguilla != null){
             liguilla.jugarUnaJornada();
+            liguilla.verClasificacion();
+        }else{
+            System.out.println("No hay liga creada, abortado");
+        }
+    }
+    
+    public void jugarJornadasDeLiga(int numero){
+        if(liguilla != null){
+            liguilla.jugarJornadas(numero);
+        }else{
+            System.out.println("No hay liga creada, abortado");
+        }
+    }
+    
+    public void jugarLigaEntera(){
+        if(liguilla != null){
+            liguilla.jugarLigaEntera();
         }else{
             System.out.println("No hay liga creada, abortado");
         }
