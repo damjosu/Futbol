@@ -53,7 +53,11 @@ public class Liga
             for(int j=i+1; j<participantes.size(); j++){
                 Equipo visitante = participantes.get(j);
                 if(!(local.equals(visitante))){
-                    jornadas.add(new Partido(local, visitante));
+                    if(i%2 != 0 && j%2 != 0){
+                        jornadas.add(new Partido(visitante, local));
+                    }else{
+                        jornadas.add(new Partido(local, visitante));
+                    }
                 }
             }
         }
